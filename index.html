@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday, Maha! ✨</title>
+    <title>Birthday Countdown for Maha! 🎂</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,224 +11,315 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Hero Section -->
-        <header class="hero">
-            <div class="hero-content">
-                <h1 class="birthday-title">Happy Birthday, Maha! 🎉</h1>
-                <p class="birthday-subtitle">A journey through our friendship ✨</p>
-                <div class="theme-icons">
-                    <i class="fas fa-guitar taylor-icon"></i>
-                    <i class="fas fa-coffee gilmore-icon"></i>
-                    <i class="fas fa-mask marvel-icon"></i>
-                </div>
-                <div class="birthday-message">
-                    <p>Maha, on your special day, I wanted to create something that shows just how much our friendship means to me. Every moment, from the silly to the significant, has built something beautiful. Here's to many more memories together! 🥂</p>
-                    <p class="signature">With love, from your friend ❤️</p>
-                </div>
-            </div>
-            <div class="hero-decoration">
-                <div class="decoration taylor-swift">"Long live all the magic we made"</div>
-                <div class="decoration gilmore-girls">"Oy with the poodles already!"</div>
-                <div class="decoration marvel">"I love you 3000"</div>
-            </div>
-        </header>
-
-        <!-- Timeline Section -->
-        <section class="timeline-section">
-            <h2 class="section-title">Our Friendship Timeline</h2>
-            <p class="section-subtitle">Every moment that brought us closer</p>
-            
-            <div class="timeline">
-                <!-- Timeline items will be dynamically added by JavaScript -->
-            </div>
-        </section>
-
-        <!-- Photo Gallery -->
-        <section class="gallery-section">
-            <h2 class="section-title">Terribly Wonderful Memories 📸</h2>
-            <p class="section-subtitle">Proof that our friendship is built on laughs and awkward photos</p>
-            
-            <div class="gallery-container">
-                <div class="gallery-controls">
-                    <button id="prev-btn" class="gallery-btn"><i class="fas fa-chevron-left"></i></button>
-                    <div class="gallery-counter">
-                        <span id="current-img">1</span> / <span id="total-imgs">14</span> <!-- Fixed: Changed from 10 to 14 -->
+    <!-- Countdown Overlay - Shows until 7:00 PM, Dec 11, 2025 -->
+    <div id="countdown-overlay" class="countdown-overlay active">
+        <div class="countdown-container">
+            <div class="countdown-content">
+                <h1 class="countdown-title">🕒 WEBSITE LOCKED 🕒</h1>
+                <p class="countdown-subtitle">The Birthday Surprise for Maha will unlock at:</p>
+                <p class="unlock-time">7:00 PM • December 11, 2025</p>
+                
+                <!-- Countdown Timer -->
+                <div class="countdown-timer">
+                    <div class="time-box">
+                        <span id="days">00</span>
+                        <p>Days</p>
                     </div>
-                    <button id="next-btn" class="gallery-btn"><i class="fas fa-chevron-right"></i></button>
-                </div>
-                <div class="gallery">
-                    <!-- Gallery images will be dynamically added by JavaScript -->
-                </div>
-                <p class="gallery-caption">Caption: <span id="img-caption">Loading...</span></p>
-            </div>
-        </section>
-
-        <!-- Secret Vault Section -->
-        <section class="vault-section">
-            <h2 class="section-title">The Friendship Vault 🔒</h2>
-            <p class="section-subtitle">A secret message protected by a riddle</p>
-            
-            <div class="vault-container">
-                <div class="vault-door locked" id="vault-door">
-                    <div class="vault-lock">
-                        <i class="fas fa-lock lock-icon"></i>
-                        <div class="lock-wheel" id="wheel-1">0</div>
-                        <div class="lock-wheel" id="wheel-2">0</div>
-                        <div class="lock-wheel" id="wheel-3">0</div>
-                        <div class="lock-wheel" id="wheel-4">0</div>
+                    <div class="time-separator">:</div>
+                    <div class="time-box">
+                        <span id="hours">00</span>
+                        <p>Hours</p>
                     </div>
-                    <div class="vault-handle"></div>
-                    <div class="vault-code-display" id="code-display">----</div>
+                    <div class="time-separator">:</div>
+                    <div class="time-box">
+                        <span id="minutes">00</span>
+                        <p>Minutes</p>
+                    </div>
+                    <div class="time-separator">:</div>
+                    <div class="time-box">
+                        <span id="seconds">00</span>
+                        <p>Seconds</p>
+                    </div>
                 </div>
                 
-                <div class="vault-controls">
-                    <div class="password-input-container">
-                        <label for="vault-password">Enter the password from the riddle:</label>
-                        <div class="password-wrapper">
-                            <input type="password" id="vault-password" placeholder="Enter password...">
-                            <button id="toggle-password" class="toggle-password-btn">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                        </div>
-                        <button id="unlock-vault" class="unlock-btn">
-                            <i class="fas fa-key"></i> Unlock the Vault
+                <p class="wait-message">Until then... enjoy this little puzzle! 😈</p>
+                
+                <!-- The Troll Math Problem -->
+                <div class="math-troll">
+                    <h2><i class="fas fa-brain"></i> SPECIAL EARLY ACCESS CHALLENGE</h2>
+                    <p class="troll-instruction">Solve this math problem to unlock the website early!<br><em>(It's 100% solvable... I promise! 😏)</em></p>
+                    
+                    <div class="math-problem-container">
+                        <img src="images/mathproblem.jpg" alt="Impossible Math Problem" class="math-image">
+                        <p class="math-caption">Can you find the value of X? 🤔</p>
+                    </div>
+                    
+                    <div class="answer-container">
+                        <input type="text" id="math-answer" placeholder="Enter your answer here... (try anything!)" maxlength="50">
+                        <button id="submit-answer" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Submit Answer
                         </button>
-                        <button id="hint-btn" class="hint-btn">
-                            <i class="fas fa-lightbulb"></i> Need a hint?
+                        <button id="hint-btn-troll" class="hint-btn-troll">
+                            <i class="fas fa-lightbulb"></i> Get Hint
                         </button>
                     </div>
                     
-                    <div class="riddle-container">
-                        <h3><i class="fas fa-question-circle"></i> The Riddle (You'll get this IRL)</h3>
-                        <div class="riddle-text">
-                            <p>I'm opened each day, yet I never unfold,<br>
-                            I'm full of new stories, though none are retold.<br>
-                            I sit on your desk with a confident grin,<br>
-                            But once you look closer, there's nothing within.</p>
-                            
-                            <p>You blame me for deadlines, you shout at my face,<br>
-                            Yet I never move—I just stay in my place.<br>
-                            You follow my orders though I'm not your boss…<br>
-                            So what am I, causing triumph or loss?</p>
-                            
-                            <p><strong>ANSWER: ________</strong></p>
+                    <div id="result-message" class="result-message">
+                        <p>Your answer will be verified by our super-advanced AI... just kidding! 😂</p>
+                    </div>
+                    
+                    <div class="attempt-counter">
+                        <p>Attempts made: <span id="attempt-count">0</span></p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
                         </div>
+                        <p class="tiny-text">(Hint: The progress bar fills up but nothing happens... curious!)</p>
                     </div>
                 </div>
                 
-                <div class="vault-content hidden" id="vault-content">
-                    <div class="vault-message">
-                        <h3><i class="fas fa-heart"></i> For Maha, On Your Birthday</h3>
-                        <div class="message-content">
-                            <p>To my wonderful friend Maha,</p>
+                <div class="fun-facts">
+                    <p><i class="fas fa-info-circle"></i> <strong>Fun Fact:</strong> While you wait, Maha has received <span id="random-number">0</span> virtual birthday hugs!</p>
+                    <p><i class="fas fa-clock"></i> <strong>Current Wait Time:</strong> Approximately <span id="wait-seconds">0</span> seconds of anticipation!</p>
+                </div>
+                
+                <p class="final-note">Don't worry, the real website is worth the wait! 🎉<br>See you at 7:00 PM on December 11th! ⏰</p>
+            </div>
+        </div>
+    </div>
 
-                            <p>It's your birthday. When I started making this, I was just thinking about all the fun and how much I wanted to celebrate you. And I still do, so much.</p>
+    <!-- Main Website Content (Hidden until countdown ends) -->
+    <div id="main-website" class="main-website hidden">
+        <div class="container">
+            <!-- Hero Section -->
+            <header class="hero">
+                <div class="hero-content">
+                    <h1 class="birthday-title">Happy Birthday, Maha! 🎉</h1>
+                    <p class="birthday-subtitle">A journey through our friendship ✨</p>
+                    <div class="theme-icons">
+                        <i class="fas fa-guitar taylor-icon"></i>
+                        <i class="fas fa-coffee gilmore-icon"></i>
+                        <i class="fas fa-mask marvel-icon"></i>
+                    </div>
+                    <div class="birthday-message">
+                        <p>Maha, on your special day, I wanted to create something that shows just how much our friendship means to me. Every moment, from the silly to the significant, has built something beautiful. Here's to many more memories together! 🥂</p>
+                        <p class="signature">With love, from your friend ❤️</p>
+                    </div>
+                </div>
+                <div class="hero-decoration">
+                    <div class="decoration taylor-swift">"Long live all the magic we made"</div>
+                    <div class="decoration gilmore-girls">"Oy with the poodles already!"</div>
+                    <div class="decoration marvel">"I love you 3000"</div>
+                </div>
+            </header>
 
-                            <p>But I've also been thinking about what birthdays really are. They're more than just a party; they're this weird, vulnerable checkpoint where you look back, look forward, and feel everything all at once. They can hold secret disappointments right next to your biggest hopes. And I know this past year hasn't been the easiest lap around the sun for you.</p>
+            <!-- Timeline Section -->
+            <section class="timeline-section">
+                <h2 class="section-title">Our Friendship Timeline</h2>
+                <p class="section-subtitle">Every moment that brought us closer</p>
+                
+                <div class="timeline">
+                    <!-- Timeline items will be dynamically added by JavaScript -->
+                </div>
+            </section>
 
-                            <p>I know things have felt heavy lately—with family, with school, with your own mind feeling like a tough place to be. I want you to know, more than anything, that I see that. I see how hard you're working, even on the days when just getting through feels like a monumental task. I see your strength, even when you might not feel strong.</p>
-
-                            <p>On a day that's supposed to be all joy, it's okay if your feelings are more complicated. <strong>It is completely okay to not be okay on your birthday.</strong> You don't have to perform happiness. My wish for you today isn't for a forced smile, but for moments of real peace. For the comfort of knowing you are deeply loved exactly as you are in this moment—overwhelmed, resilient, and perfectly human.</p>
-
-                            <p>Looking at our timeline, I realize our whole friendship is a story of getting through things. We started talking in February, navigated friend group changes in September, had those late-night calls where we figured stuff out, and realized we were getting closer in October. We've been building something real through all of it. You've always been the friend who makes ordinary moments feel important, and you have this quiet way of making people feel seen.</p>
-
-                            <p>So today, I'm turning the spotlight on you. Not to pressure you, but to remind you: <strong>You are not your struggles.</strong> You are the person who debates brilliantly at MUN sessions. You are the one who shows up, who laughs until it hurts, who is loyal in the most incredible way. The world is genuinely better because you're in it.</p>
-
-                            <p>My birthday wish for you this year is simple and huge: <strong>I wish you relief.</strong> I wish for the crushing weight to lighten. I wish for you to find pockets of calm and reasons for hope that feel true. I wish for your coming year to have more gentle days, small victories, and the deep, comforting knowledge that you have people in your corner—and I am so firmly, permanently in your corner.</p>
-
-                            <p>I am here for the 10% wholesome celebrations and the 90% real, unvarnished, challenging, beautiful life. I'm here for the meltdowns and the memes. I'm here, always.</p>
-
-                            <p>Thank you for trusting me with your stories. Thank you for being my friend. I am so proud of you, and I'm so excited to see you heal and grow this year.</p>
-
-                            <p>All my love,<br>
-                            Your friend, always ❤️</p>
+            <!-- Photo Gallery -->
+            <section class="gallery-section">
+                <h2 class="section-title">Terribly Wonderful Memories 📸</h2>
+                <p class="section-subtitle">Proof that our friendship is built on laughs and awkward photos</p>
+                
+                <div class="gallery-container">
+                    <div class="gallery-controls">
+                        <button id="prev-btn" class="gallery-btn"><i class="fas fa-chevron-left"></i></button>
+                        <div class="gallery-counter">
+                            <span id="current-img">1</span> / <span id="total-imgs">14</span>
                         </div>
-                        <button id="close-vault" class="close-vault-btn">
-                            <i class="fas fa-lock"></i> Close Vault
+                        <button id="next-btn" class="gallery-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="gallery">
+                        <!-- Gallery images will be dynamically added by JavaScript -->
+                    </div>
+                    <p class="gallery-caption">Caption: <span id="img-caption">Loading...</span></p>
+                </div>
+            </section>
+
+            <!-- Secret Vault Section -->
+            <section class="vault-section">
+                <h2 class="section-title">The Friendship Vault 🔒</h2>
+                <p class="section-subtitle">A secret message protected by a riddle</p>
+                
+                <div class="vault-container">
+                    <div class="vault-door locked" id="vault-door">
+                        <div class="vault-lock">
+                            <i class="fas fa-lock lock-icon"></i>
+                            <div class="lock-wheel" id="wheel-1">0</div>
+                            <div class="lock-wheel" id="wheel-2">0</div>
+                            <div class="lock-wheel" id="wheel-3">0</div>
+                            <div class="lock-wheel" id="wheel-4">0</div>
+                        </div>
+                        <div class="vault-handle"></div>
+                        <div class="vault-code-display" id="code-display">----</div>
+                    </div>
+                    
+                    <div class="vault-controls">
+                        <div class="password-input-container">
+                            <label for="vault-password">Enter the password from the riddle:</label>
+                            <div class="password-wrapper">
+                                <input type="password" id="vault-password" placeholder="Enter password...">
+                                <button id="toggle-password" class="toggle-password-btn">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <button id="unlock-vault" class="unlock-btn">
+                                <i class="fas fa-key"></i> Unlock the Vault
+                            </button>
+                            <button id="hint-btn" class="hint-btn">
+                                <i class="fas fa-lightbulb"></i> Need a hint?
+                            </button>
+                        </div>
+                        
+                        <div class="riddle-container">
+                            <h3><i class="fas fa-question-circle"></i> The Riddle (You'll get this IRL)</h3>
+                            <div class="riddle-text">
+                                <p>I'm opened each day, yet I never unfold,<br>
+                                I'm full of new stories, though none are retold.<br>
+                                I sit on your desk with a confident grin,<br>
+                                But once you look closer, there's nothing within.</p>
+                                
+                                <p>You blame me for deadlines, you shout at my face,<br>
+                                Yet I never move—I just stay in my place.<br>
+                                You follow my orders though I'm not your boss…<br>
+                                So what am I, causing triumph or loss?</p>
+                                
+                                <p><strong>ANSWER: ________</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="vault-content hidden" id="vault-content">
+                        <div class="vault-message">
+                            <h3><i class="fas fa-heart"></i> For Maha, On Your Birthday</h3>
+                            <div class="message-content">
+                                <p>To my wonderful friend Maha,</p>
+
+                                <p>It's your birthday. When I started making this, I was just thinking about all the fun and how much I wanted to celebrate you. And I still do, so much.</p>
+
+                                <p>But I've also been thinking about what birthdays really are. They're more than just a party; they're this weird, vulnerable checkpoint where you look back, look forward, and feel everything all at once. They can hold secret disappointments right next to your biggest hopes. And I know this past year hasn't been the easiest lap around the sun for you.</p>
+
+                                <p>I know things have felt heavy lately—with family, with school, with your own mind feeling like a tough place to be. I want you to know, more than anything, that I see that. I see how hard you're working, even on the days when just getting through feels like a monumental task. I see your strength, even when you might not feel strong.</p>
+
+                                <p>On a day that's supposed to be all joy, it's okay if your feelings are more complicated. <strong>It is completely okay to not be okay on your birthday.</strong> You don't have to perform happiness. My wish for you today isn't for a forced smile, but for moments of real peace. For the comfort of knowing you are deeply loved exactly as you are in this moment—overwhelmed, resilient, and perfectly human.</p>
+
+                                <p>Looking at our timeline, I realize our whole friendship is a story of getting through things. We started talking in February, navigated friend group changes in September, had those late-night calls where we figured stuff out, and realized we were getting closer in October. We've been building something real through all of it. You've always been the friend who makes ordinary moments feel important, and you have this quiet way of making people feel seen.</p>
+
+                                <p>So today, I'm turning the spotlight on you. Not to pressure you, but to remind you: <strong>You are not your struggles.</strong> You are the person who debates brilliantly at MUN sessions. You are the one who shows up, who laughs until it hurts, who is loyal in the most incredible way. The world is genuinely better because you're in it.</p>
+
+                                <p>My birthday wish for you this year is simple and huge: <strong>I wish you relief.</strong> I wish for the crushing weight to lighten. I wish for you to find pockets of calm and reasons for hope that feel true. I wish for your coming year to have more gentle days, small victories, and the deep, comforting knowledge that you have people in your corner—and I am so firmly, permanently in your corner.</p>
+
+                                <p>I am here for the 10% wholesome celebrations and the 90% real, unvarnished, challenging, beautiful life. I'm here for the meltdowns and the memes. I'm here, always.</p>
+
+                                <p>Thank you for trusting me with your stories. Thank you for being my friend. I am so proud of you, and I'm so excited to see you heal and grow this year.</p>
+
+                                <p>All my love,<br>
+                                Your friend, always ❤️</p>
+                            </div>
+                            <button id="close-vault" class="close-vault-btn">
+                                <i class="fas fa-lock"></i> Close Vault
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="attempts-counter">
+                        <p>Attempts: <span id="attempts-count">0</span></p>
+                        <div class="attempts-bar">
+                            <div class="attempts-fill" id="attempts-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Marvel Section -->
+            <section class="marvel-section">
+                <h2 class="section-title">Superhero Friendship</h2>
+                <p class="section-subtitle">Because our friendship has superpowers!</p>
+                
+                <div class="marvel-cards">
+                    <div class="marvel-card iron-man">
+                        <div class="marvel-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Iron Man Friendship</h3>
+                        <p>Like Tony Stark, our friendship is built with intelligence, humor, and a bit of genius-level engineering!</p>
+                    </div>
+                    <div class="marvel-card spiderman">
+                        <div class="marvel-icon">
+                            <i class="fas fa-spider"></i>
+                        </div>
+                        <h3>Spiderman Friendship</h3>
+                        <p>Like Peter Parker, we stick together through thick and thin, with great responsibility and awesome memories!</p>
+                    </div>
+                    <div class="marvel-card friendship-gauntlet">
+                        <div class="marvel-icon">
+                            <i class="fas fa-infinity"></i>
+                        </div>
+                        <h3>Our Friendship Gauntlet</h3>
+                        <p>With all the stones of laughter, trust, adventures, late-night calls, and Mun sessions - our friendship is truly infinite!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Birthday Wish -->
+            <section class="birthday-wish">
+                <div class="wish-content">
+                    <h2>My Birthday Wish for You</h2>
+                    <div class="wish-text">
+                        <p>Maha, I wish you a year filled with:</p>
+                        <ul>
+                            <li>Taylor Swift songs that perfectly match your mood</li>
+                            <li>Gilmore Girls-level witty conversations</li>
+                            <li>Marvel-worthy adventures and triumphs</li>
+                            <li>Endless laughter and unforgettable moments</li>
+                            <li>All the success and happiness you deserve</li>
+                        </ul>
+                        <p class="final-message">Thank you for being such an incredible friend. Here's to celebrating many more birthdays together! 🥳🎂</p>
+                    </div>
+                    <div class="confetti-container">
+                        <button id="confetti-btn" class="confetti-btn">
+                            <i class="fas fa-birthday-cake"></i> Launch Birthday Confetti!
                         </button>
                     </div>
                 </div>
-                
-                <div class="attempts-counter">
-                    <p>Attempts: <span id="attempts-count">0</span></p>
-                    <div class="attempts-bar">
-                        <div class="attempts-fill" id="attempts-fill"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Interactive Marvel Section -->
-        <section class="marvel-section">
-            <h2 class="section-title">Superhero Friendship</h2>
-            <p class="section-subtitle">Because our friendship has superpowers!</p>
-            
-            <div class="marvel-cards">
-                <div class="marvel-card iron-man">
-                    <div class="marvel-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>Iron Man Friendship</h3>
-                    <p>Like Tony Stark, our friendship is built with intelligence, humor, and a bit of genius-level engineering!</p>
-                </div>
-                <div class="marvel-card spiderman">
-                    <div class="marvel-icon">
-                        <i class="fas fa-spider"></i>
-                    </div>
-                    <h3>Spiderman Friendship</h3>
-                    <p>Like Peter Parker, we stick together through thick and thin, with great responsibility and awesome memories!</p>
-                </div>
-                <div class="marvel-card friendship-gauntlet">
-                    <div class="marvel-icon">
-                        <i class="fas fa-infinity"></i>
-                    </div>
-                    <h3>Our Friendship Gauntlet</h3>
-                    <p>With all the stones of laughter, trust, adventures, late-night calls, and Mun sessions - our friendship is truly infinite!</p>
-                </div>
-            </div>
-        </section>
+            <footer>
+                <p>Made with ❤️ for Maha's Birthday | 2025</p>
+                <p class="footer-note">This website is deployed on GitHub Pages for you to keep forever!</p>
+            </footer>
+        </div>
 
-        <!-- Birthday Wish -->
-        <section class="birthday-wish">
-            <div class="wish-content">
-                <h2>My Birthday Wish for You</h2>
-                <div class="wish-text">
-                    <p>Maha, I wish you a year filled with:</p>
-                    <ul>
-                        <li>Taylor Swift songs that perfectly match your mood</li>
-                        <li>Gilmore Girls-level witty conversations</li>
-                        <li>Marvel-worthy adventures and triumphs</li>
-                        <li>Endless laughter and unforgettable moments</li>
-                        <li>All the success and happiness you deserve</li>
-                    </ul>
-                    <p class="final-message">Thank you for being such an incredible friend. Here's to celebrating many more birthdays together! 🥳🎂</p>
-                </div>
-                <div class="confetti-container">
-                    <button id="confetti-btn" class="confetti-btn">
-                        <i class="fas fa-birthday-cake"></i> Launch Birthday Confetti!
-                    </button>
-                </div>
-            </div>
-        </section>
+        <!-- Confetti Canvas -->
+        <canvas id="confetti-canvas"></canvas>
 
-        <footer>
-            <p>Made with ❤️ for Maha's Birthday | 2025</p>
-            <p class="footer-note">This website is deployed on GitHub Pages for you to keep forever!</p>
-        </footer>
+        <!-- Hint Modal -->
+        <div class="hint-modal hidden" id="hint-modal">
+            <div class="hint-modal-content">
+                <h3><i class="fas fa-lightbulb"></i> Hint for the Vault</h3>
+                <p>The password is a single word that answers the riddle. It's not case-sensitive.</p>
+                <p>Think about something that tracks days and deadlines, sits on a desk, and you look at it daily but it never actually moves.</p>
+                <p>It has 8 letters and starts with "C".</p>
+                <button id="close-hint" class="close-hint-btn">Got it, thanks!</button>
+            </div>
+        </div>
     </div>
 
-    <!-- Confetti Canvas -->
-    <canvas id="confetti-canvas"></canvas>
-
-    <!-- Hint Modal -->
-    <div class="hint-modal hidden" id="hint-modal">
-        <div class="hint-modal-content">
-            <h3><i class="fas fa-lightbulb"></i> Hint for the Vault</h3>
-            <p>The password is a single word that answers the riddle. It's not case-sensitive.</p>
-            <p>Think about something that tracks days and deadlines, sits on a desk, and you look at it daily but it never actually moves.</p>
-            <p>It has 8 letters and starts with "C".</p>
-            <button id="close-hint" class="close-hint-btn">Got it, thanks!</button>
+    <!-- Hint Modal for Math Troll -->
+    <div class="hint-modal-troll hidden" id="hint-modal-troll">
+        <div class="hint-modal-content-troll">
+            <h3><i class="fas fa-lightbulb"></i> Hint for the Math Problem</h3>
+            <p>Oh honey... you actually think there's a solution? 😂</p>
+            <p>This is an <strong>impossible problem</strong>! It's designed to make you waste time trying to solve it!</p>
+            <p>The real website unlocks at 7:00 PM on December 11, 2025, no matter what answer you put!</p>
+            <p>But hey, keep trying if you want! The submit button is basically a placebo! 🤫</p>
+            <button id="close-hint-troll" class="close-hint-btn-troll">I've been trolled! 😭</button>
         </div>
     </div>
 
