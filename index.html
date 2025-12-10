@@ -64,6 +64,120 @@
             </div>
         </section>
 
+        <!-- Secret Vault Section -->
+        <section class="vault-section">
+            <h2 class="section-title">The Friendship Vault 🔒</h2>
+            <p class="section-subtitle">A secret message protected by a riddle</p>
+            
+            <div class="vault-container">
+                <div class="vault-door locked" id="vault-door">
+                    <div class="vault-lock">
+                        <i class="fas fa-lock lock-icon"></i>
+                        <div class="lock-wheel" id="wheel-1">0</div>
+                        <div class="lock-wheel" id="wheel-2">0</div>
+                        <div class="lock-wheel" id="wheel-3">0</div>
+                        <div class="lock-wheel" id="wheel-4">0</div>
+                    </div>
+                    <div class="vault-handle"></div>
+                    <div class="vault-code-display" id="code-display">----</div>
+                </div>
+                
+                <div class="vault-controls">
+                    <div class="password-input-container">
+                        <label for="vault-password">Enter the password from the riddle:</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="vault-password" placeholder="Enter password...">
+                            <button id="toggle-password" class="toggle-password-btn">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <button id="unlock-vault" class="unlock-btn">
+                            <i class="fas fa-key"></i> Unlock the Vault
+                        </button>
+                        <button id="hint-btn" class="hint-btn">
+                            <i class="fas fa-lightbulb"></i> Need a hint?
+                        </button>
+                    </div>
+                    
+                    <div class="riddle-container">
+                        <h3><i class="fas fa-question-circle"></i> The Riddle (You'll get this IRL)</h3>
+                        <div class="riddle-text">
+                            <p>I'm not a spider, but I spin connections,<br>
+                            Not a Swift song, but full of affection.<br>
+                            I began with a handshake in February's embrace,<br>
+                            And grew through every challenge we had to face.</p>
+                            
+                            <p>From late-night calls to MUN debates,<br>
+                            Through changing friend groups and different fates.<br>
+                            I'm found in memories, in laughter, in tears,<br>
+                            Growing stronger with each passing years.</p>
+                            
+                            <p>What am I? (The answer is our ________)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="vault-content hidden" id="vault-content">
+                    <div class="vault-message">
+                        <h3><i class="fas fa-heart"></i> My Friendship Letter to You</h3>
+                        <div class="message-content">
+                            <p>Dear Maha,</p>
+                            
+                            <p>As I sit down to write this, I'm overwhelmed by how much our friendship means to me. It's hard to put into words, but I'll try.</p>
+                            
+                            <p>I remember the first time we properly talked - it was that day in February. There was something about your energy that drew me in. You had this incredible combination of intelligence, humor, and kindness that I'd rarely seen before. Little did I know that casual conversation would blossom into one of the most meaningful friendships of my life.</p>
+                            
+                            <p>Our first hangout in March was when I realized we had something special. We talked for hours about everything - from our favorite Marvel movies (your love for Spider-Man and Iron Man is legendary) to our dreams and fears. I remember laughing so hard my stomach hurt, and thinking, "I want more moments like this with her."</p>
+                            
+                            <p>When we became closer in June, something shifted. We started sharing parts of ourselves that we didn't show everyone. The late-night conversations, the inside jokes, the mutual understanding - it all started building this beautiful foundation of trust.</p>
+                            
+                            <p>Then came the challenges. When the friend group started changing in September, I saw a different side of you - resilient, strong, and incredibly loyal. You stood by me when things got complicated, and that meant more than you'll ever know. The 13th of September wasn't just a date; it was the moment I realized our friendship could withstand anything.</p>
+                            
+                            <p>October 17th - the day you said you started to "realize." I think about that often. What did you realize? That we had something worth holding onto? That amidst all the changes, our connection was constant? Whatever it was, I felt it too. We were building something rare and precious.</p>
+                            
+                            <p>Our MUN sessions in December showed me yet another side of you - brilliant, articulate, passionate. Watching you debate and strategize was inspiring. And our first time going out alone in January felt like a milestone - like we had officially graduated to a new level of friendship.</p>
+                            
+                            <p>Maha, you've seen me at my best and my worst. You've celebrated my victories and comforted me during setbacks. You've laughed at my terrible jokes and shared your own awkward moments. You've introduced me to new music (Taylor Swift marathons!), made me watch Gilmore Girls (and now I'm hooked), and debated Marvel theories with me for hours.</p>
+                            
+                            <p>What I love most about our friendship is how easy it is. We can sit in comfortable silence or talk for hours. We can be completely silly or have deep, meaningful conversations. We challenge each other to grow while accepting each other exactly as we are.</p>
+                            
+                            <p>You've taught me so much about loyalty, about showing up, about being present. You've shown me that true friendship isn't about perfection; it's about being real, being vulnerable, and choosing each other day after day.</p>
+                            
+                            <p>On your birthday, I want you to know:</p>
+                            <ul>
+                                <li>You are one of the most incredible people I've ever met</li>
+                                <li>Your intelligence and creativity inspire me constantly</li>
+                                <li>Your sense of humor brightens even the darkest days</li>
+                                <li>Your loyalty and kindness make you a truly exceptional friend</li>
+                                <li>You deserve all the happiness in the world</li>
+                            </ul>
+                            
+                            <p>As we move forward, I want more of everything with you - more late-night calls, more MUN debates, more terrible selfies, more inside jokes, more Taylor Swift singalongs, more Marvel movie marathons, more coffee dates, more everything.</p>
+                            
+                            <p>Thank you for being my friend. Thank you for trusting me with your stories. Thank you for listening to mine. Thank you for the laughter, the support, the memories, and the countless moments that have made our friendship what it is today.</p>
+                            
+                            <p>Happy birthday, my amazing friend. May this year bring you everything you've been dreaming of and more. I'll be here cheering you on every step of the way.</p>
+                            
+                            <p>With all my love,</p>
+                            <p>Your friend, forever ❤️</p>
+                            
+                            <p class="postscript">P.S. Remember: "I love you 3000" - but our friendship? That's infinite.</p>
+                        </div>
+                        <button id="close-vault" class="close-vault-btn">
+                            <i class="fas fa-lock"></i> Close Vault
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="attempts-counter">
+                    <p>Attempts: <span id="attempts-count">0</span></p>
+                    <div class="attempts-bar">
+                        <div class="attempts-fill" id="attempts-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Interactive Marvel Section -->
         <section class="marvel-section">
             <h2 class="section-title">Superhero Friendship</h2>
@@ -125,6 +239,17 @@
 
     <!-- Confetti Canvas -->
     <canvas id="confetti-canvas"></canvas>
+
+    <!-- Hint Modal -->
+    <div class="hint-modal hidden" id="hint-modal">
+        <div class="hint-modal-content">
+            <h3><i class="fas fa-lightbulb"></i> Hint for the Vault</h3>
+            <p>The password is a single word that describes what we have together. It's mentioned in the riddle itself.</p>
+            <p>Think about what began in February and grew through all our experiences. The answer is 8 letters long.</p>
+            <p>Need another hint? Look at the timeline - what were we building through all those moments?</p>
+            <button id="close-hint" class="close-hint-btn">Got it, thanks!</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
