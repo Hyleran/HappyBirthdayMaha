@@ -77,6 +77,11 @@ const galleryData = [
     { src: "images/maha10.jpg", caption: "The picture that sums up our entire friendship - perfectly imperfect" }
 ];
 
+// Vault functionality
+const VAULT_PASSWORD = "FRIENDSHIP"; // You can change this to whatever you want
+let attempts = 0;
+const MAX_ATTEMPTS = 5;
+
 // Initialize the website
 document.addEventListener('DOMContentLoaded', function() {
     // Create timeline
@@ -90,6 +95,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Set total images count
     document.getElementById('total-imgs').textContent = galleryData.length;
+    
+    // Setup vault functionality
+    setupVault();
 });
 
 // Function to create timeline
@@ -188,6 +196,181 @@ function createGallery() {
     setInterval(() => {
         nextBtn.click();
     }, 5000);
+}
+
+// Function to setup vault
+function setupVault() {
+    const vaultDoor = document.getElementById('vault-door');
+    const vaultPasswordInput = document.getElementById('vault-password');
+    const unlockVaultBtn = document.getElementById('unlock-vault');
+    const togglePasswordBtn = document.getElementById('toggle-password');
+    const hintBtn = document.getElementById('hint-btn');
+    const closeVaultBtn = document.getElementById('close-vault');
+    const closeHintBtn = document.getElementById('close-hint');
+    const hintModal = document.getElementById('hint-modal');
+    const vaultContent = document.getElementById('vault-content');
+    const attemptsCount = document.getElementById('attempts-count');
+    const attemptsFill = document.getElementById('attempts-fill');
+    const codeDisplay = document.getElementById('code-display');
+    
+    // Initialize attempts counter
+    updateAttemptsDisplay();
+    
+    // Toggle password visibility
+    togglePasswordBtn.addEventListener('click', function() {
+        const type = vaultPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        vaultPasswordInput.setAttribute('type', type);
+        
+        // Toggle eye icon
+        const icon = this.querySelector('i');
+        icon.className = type === 'password' ? 'fas fa-eye' : 'fas fa-eye-slash';
+    });
+    
+    // Unlock vault button
+    unlockVaultBtn.addEventListener('click', function() {
+        const password = vaultPasswordInput.value.trim().toUpperCase();
+        
+        if (password === VAULT_PASSWORD) {
+            // Correct password - open vault
+            unlockVault();
+        } else {
+            // Wrong password
+            attempts++;
+            updateAttemptsDisplay();
+            
+            // Shake animation for wrong password
+            vaultDoor.style.animation = 'shake 0.5s';
+            setTimeout(() => {
+                vaultDoor.style.animation = '';
+            }, 500);
+            
+            // Update code display with wrong code
+            updateCodeDisplay(password);
+            
+            // Show error message
+            if (attempts < MAX_ATTEMPTS) {
+                alert(`Incorrect password. You have ${MAX_ATTEMPTS - attempts} attempt${MAX_ATTEMPTS - attempts === 1 ? '' : 's'} left.`);
+            } else {
+                alert("You've used all your attempts! The vault will reset in 10 seconds.");
+                setTimeout(() => {
+                    attempts = 0;
+                    updateAttemptsDisplay();
+                    vaultPasswordInput.value = '';
+                    updateCodeDisplay('----');
+                    alert("Vault reset. Try again!");
+                }, 10000);
+            }
+            
+            // Clear password field
+            vaultPasswordInput.value = '';
+        }
+    });
+    
+    // Allow pressing Enter to submit password
+    vaultPasswordInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            unlockVaultBtn.click();
+        }
+    });
+    
+    // Hint button
+    hintBtn.addEventListener('click', function() {
+        hintModal.classList.remove('hidden');
+    });
+    
+    // Close hint modal
+    closeHintBtn.addEventListener('click', function() {
+        hintModal.classList.add('hidden');
+    });
+    
+    // Close vault button
+    closeVaultBtn.addEventListener('click', function() {
+        vaultDoor.classList.remove('unlocked');
+        vaultDoor.classList.add('locked');
+        vaultContent.classList.add('hidden');
+        vaultPasswordInput.value = '';
+        updateCodeDisplay('----');
+    });
+    
+    // Update attempts display
+    function updateAttemptsDisplay() {
+        attemptsCount.textContent = attempts;
+        const fillPercentage = (attempts / MAX_ATTEMPTS) * 100;
+        attemptsFill.style.width = `${fillPercentage}%`;
+    }
+    
+    // Update code display
+    function updateCodeDisplay(password) {
+        if (password === '') {
+            codeDisplay.textContent = '----';
+        } else {
+            // Show first 4 characters of password, or pad with -
+            let display = password.substring(0, 4);
+            while (display.length < 4) {
+                display += '-';
+            }
+            codeDisplay.textContent = display;
+        }
+    }
+    
+    // Unlock vault function
+    function unlockVault() {
+        // Animate lock wheels
+        animateLockWheels();
+        
+        // Open vault door after a delay
+        setTimeout(() => {
+            vaultDoor.classList.remove('locked');
+            vaultDoor.classList.add('unlocked');
+            
+            // Show vault content after door opens
+            setTimeout(() => {
+                vaultContent.classList.remove('hidden');
+                
+                // Scroll to vault content
+                vaultContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                // Launch confetti for celebration
+                if (typeof startConfetti === 'function') {
+                    startConfetti();
+                }
+            }, 800);
+        }, 1500);
+        
+        // Reset attempts
+        attempts = 0;
+        updateAttemptsDisplay();
+    }
+    
+    // Animate lock wheels
+    function animateLockWheels() {
+        const wheels = document.querySelectorAll('.lock-wheel');
+        const finalNumbers = VAULT_PASSWORD.split('').map(char => {
+            // Convert characters to numbers 0-9
+            return char.charCodeAt(0) % 10;
+        });
+        
+        // Ensure we have 4 numbers
+        while (finalNumbers.length < 4) {
+            finalNumbers.push(0);
+        }
+        
+        wheels.forEach((wheel, index) => {
+            // Spin animation
+            let current = 0;
+            const target = finalNumbers[index];
+            const interval = setInterval(() => {
+                wheel.textContent = current;
+                current = (current + 1) % 10;
+                
+                // Stop when we reach the target
+                if (current === target) {
+                    clearInterval(interval);
+                    wheel.textContent = target;
+                }
+            }, 50 + (index * 20));
+        });
+    }
 }
 
 // Function to setup confetti
@@ -332,3 +515,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Add shake animation for wrong password
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes shake {
+        0%, 100% { transform: perspective(1000px) rotateY(0deg) translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: perspective(1000px) rotateY(0deg) translateX(-10px); }
+        20%, 40%, 60%, 80% { transform: perspective(1000px) rotateY(0deg) translateX(10px); }
+    }
+`;
+document.head.appendChild(style);
