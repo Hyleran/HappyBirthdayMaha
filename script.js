@@ -64,17 +64,22 @@ const timelineData = [
 
 // Gallery data - using placeholder images since actual images are in your folder
 // In a real scenario, you would replace these with your actual image filenames
+// Gallery data - using YOUR actual image filenames
 const galleryData = [
-    { src: "images/maha1.jpg", caption: "That time we tried to take a serious photo but ended up laughing" },
-    { src: "images/maha2.jpg", caption: "Our attempt at a cute friendship picture that turned out awkward" },
-    { src: "images/maha3.jpg", caption: "When we discovered a mutual love for terrible selfie angles" },
-    { src: "images/maha4.jpg", caption: "Proof that we can't take a normal photo together" },
-    { src: "images/maha5.jpg", caption: "That 'serious' conversation that dissolved into giggles" },
-    { src: "images/maha6.jpg", caption: "Our 'model' phase that thankfully didn't last long" },
-    { src: "images/maha7.jpg", caption: "When we tried to be artsy but ended up with blurry photos" },
-    { src: "images/maha8.jpg", caption: "That embarrassing moment captured forever (thanks, camera!)" },
-    { src: "images/maha9.jpg", caption: "Our 'we just woke up' photo session that went wrong" },
-    { src: "images/maha10.jpg", caption: "The picture that sums up our entire friendship - perfectly imperfect" }
+    { src: "images/HAAAAAAAAAHAHA.png", caption: "" },
+    { src: "images/I don't think Maha wants to watch the show with me.png", caption: "" },
+    { src: "images/MAHAGEISHA.png", caption: "" },
+    { src: "images/Screenshot 2024-02-15 201756.png", caption: "" },
+    { src: "images/Screenshot 2025-11-14 195602.png", caption: "" },
+    { src: "images/Screenshot 2025-11-14 195608.png", caption: "" },
+    { src: "images/Screenshot 2025-11-14 195612.png", caption: "" },
+    { src: "images/mahawatchingkorbakai5.png", caption: "" },
+    { src: "images/mahawatchingkorbakai8.png", caption: "" },
+    { src: "images/mahawatchingkorbakai9.png", caption: "" },
+    { src: "images/mahawithanantenna.png", caption: "" },
+    { src: "images/mahsgonnacrywhensheseesthis.png", caption: "" },
+    { src: "images/picklewater.png", caption: "" },
+    { src: "images/queenwhat.png", caption: "" }
 ];
 
 // Vault functionality - PASSWORD IS "calendar" (case-insensitive)
@@ -170,7 +175,7 @@ function createGallery() {
     const images = document.querySelectorAll('.gallery-img');
     if (images.length > 0) {
         images[0].classList.add('active');
-        captionElement.textContent = galleryData[0].caption;
+        captionElement.textContent = "";
         currentImgElement.textContent = 1;
     }
     
@@ -179,7 +184,7 @@ function createGallery() {
         images[currentIndex].classList.remove('active');
         currentIndex = (currentIndex + 1) % images.length;
         images[currentIndex].classList.add('active');
-        captionElement.textContent = galleryData[currentIndex].caption;
+        captionElement.textContent = "";
         currentImgElement.textContent = currentIndex + 1;
     });
     
@@ -188,7 +193,7 @@ function createGallery() {
         images[currentIndex].classList.remove('active');
         currentIndex = (currentIndex - 1 + images.length) % images.length;
         images[currentIndex].classList.add('active');
-        captionElement.textContent = galleryData[currentIndex].caption;
+        captionElement.textContent = "";
         currentImgElement.textContent = currentIndex + 1;
     });
     
