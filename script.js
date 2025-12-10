@@ -62,9 +62,7 @@ const timelineData = [
     }
 ];
 
-// Gallery data - using placeholder images since actual images are in your folder
-// In a real scenario, you would replace these with your actual image filenames
-// Gallery data - using YOUR actual image filenames
+// Gallery data - using YOUR actual image filenames with captions :3
 const galleryData = [
     { src: "images/HAAAAAAAAAHAHA.png", caption: "Dzang you look sad, why???" },
     { src: "images/I don't think Maha wants to watch the show with me.png", caption: "Oh wow you must have been DISGUSTED here" },
@@ -175,7 +173,7 @@ function createGallery() {
     const images = document.querySelectorAll('.gallery-img');
     if (images.length > 0) {
         images[0].classList.add('active');
-        captionElement.textContent = "";
+        captionElement.textContent = galleryData[0].caption; // FIXED: now shows caption
         currentImgElement.textContent = 1;
     }
     
@@ -184,7 +182,7 @@ function createGallery() {
         images[currentIndex].classList.remove('active');
         currentIndex = (currentIndex + 1) % images.length;
         images[currentIndex].classList.add('active');
-        captionElement.textContent = "";
+        captionElement.textContent = galleryData[currentIndex].caption; // FIXED: now shows caption
         currentImgElement.textContent = currentIndex + 1;
     });
     
@@ -193,7 +191,7 @@ function createGallery() {
         images[currentIndex].classList.remove('active');
         currentIndex = (currentIndex - 1 + images.length) % images.length;
         images[currentIndex].classList.add('active');
-        captionElement.textContent = "";
+        captionElement.textContent = galleryData[currentIndex].caption; // FIXED: now shows caption
         currentImgElement.textContent = currentIndex + 1;
     });
     
