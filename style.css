@@ -1,3 +1,340 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fce4ec 0%, #e3f2fd 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(255, 182, 193, 0.9), rgba(173, 216, 230, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M20,20 Q50,5 80,20 T100,50 T80,80 T50,95 T20,80 T0,50 T20,20 Z" fill="rgba(255,255,255,0.2)"/></svg>');
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.birthday-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: #d32f2f;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.birthday-subtitle {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.theme-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.theme-icons i {
+    font-size: 2.5rem;
+    padding: 15px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.taylor-icon {
+    color: #ff4081;
+    background-color: rgba(255, 64, 129, 0.1);
+}
+
+.gilmore-icon {
+    color: #8d6e63;
+    background-color: rgba(141, 110, 99, 0.1);
+}
+
+.marvel-icon {
+    color: #c62828;
+    background-color: rgba(198, 40, 40, 0.1);
+}
+
+.theme-icons i:hover {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.birthday-message {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.birthday-message p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #d32f2f;
+    text-align: right;
+    margin-top: 20px;
+}
+
+.hero-decoration {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.decoration {
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin: 5px;
+}
+
+.taylor-swift {
+    background-color: rgba(255, 64, 129, 0.15);
+    color: #c2185b;
+}
+
+.gilmore-girls {
+    background-color: rgba(141, 110, 99, 0.15);
+    color: #5d4037;
+}
+
+.marvel {
+    background-color: rgba(198, 40, 40, 0.15);
+    color: #b71c1c;
+}
+
+/* Section Styles */
+.section-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem;
+    text-align: center;
+    color: #d32f2f;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+}
+
+/* Timeline Section */
+.timeline-section {
+    margin-bottom: 60px;
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, #ff4081, #2196f3);
+    transform: translateX(-50%);
+    border-radius: 10px;
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.timeline-content {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    width: 45%;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-right: 55%;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: 55%;
+}
+
+.timeline-date {
+    font-weight: 600;
+    color: #d32f2f;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.timeline-date i {
+    margin-right: 10px;
+}
+
+.timeline-desc {
+    color: #555;
+    font-size: 1.05rem;
+}
+
+.timeline-icon {
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.timeline-icon i {
+    font-size: 1.5rem;
+}
+
+.timeline-item:nth-child(1) .timeline-icon { background-color: #ffebee; color: #d32f2f; }
+.timeline-item:nth-child(2) .timeline-icon { background-color: #f3e5f5; color: #7b1fa2; }
+.timeline-item:nth-child(3) .timeline-icon { background-color: #e8eaf6; color: #303f9f; }
+.timeline-item:nth-child(4) .timeline-icon { background-color: #e3f2fd; color: #1976d2; }
+.timeline-item:nth-child(5) .timeline-icon { background-color: #e8f5e8; color: #388e3c; }
+.timeline-item:nth-child(6) .timeline-icon { background-color: #fff3e0; color: #f57c00; }
+.timeline-item:nth-child(7) .timeline-icon { background-color: #fce4ec; color: #c2185b; }
+.timeline-item:nth-child(8) .timeline-icon { background-color: #f3e5f5; color: #7b1fa2; }
+.timeline-item:nth-child(9) .timeline-icon { background-color: #e8eaf6; color: #303f9f; }
+.timeline-item:nth-child(10) .timeline-icon { background-color: #e3f2fd; color: #1976d2; }
+
+/* Gallery Section */
+.gallery-section {
+    margin-bottom: 60px;
+}
+
+.gallery-container {
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.gallery-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.gallery-btn {
+    background-color: #f0f0f0;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #555;
+}
+
+.gallery-btn:hover {
+    background-color: #d32f2f;
+    color: white;
+    transform: scale(1.1);
+}
+
+.gallery-counter {
+    margin: 0 25px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #d32f2f;
+}
+
+.gallery {
+    height: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    display: none;
+}
+
+.gallery-img.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.gallery-caption {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    font-size: 1.1rem;
+    padding: 10px;
+}
+
 /* Vault Section Styles */
 .vault-section {
     margin-bottom: 60px;
@@ -431,8 +768,223 @@
     transform: translateY(-2px);
 }
 
-/* Responsive adjustments for vault */
-@media (max-width: 768px) {
+/* Marvel Section */
+.marvel-section {
+    margin-bottom: 60px;
+}
+
+.marvel-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.marvel-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    width: 300px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.marvel-card:hover {
+    transform: translateY(-10px);
+}
+
+.iron-man {
+    border-top: 5px solid #c62828;
+}
+
+.spiderman {
+    border-top: 5px solid #1976d2;
+}
+
+.friendship-gauntlet {
+    border-top: 5px solid #7b1fa2;
+}
+
+.marvel-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 2rem;
+}
+
+.iron-man .marvel-icon {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.spiderman .marvel-icon {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.friendship-gauntlet .marvel-icon {
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.marvel-card h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.marvel-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Birthday Wish */
+.birthday-wish {
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.9), rgba(173, 216, 230, 0.9));
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.wish-content h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: #d32f2f;
+    margin-bottom: 30px;
+}
+
+.wish-text {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    text-align: left;
+}
+
+.wish-text p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.wish-text ul {
+    padding-left: 30px;
+    margin-bottom: 25px;
+}
+
+.wish-text li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.final-message {
+    font-style: italic;
+    text-align: center;
+    font-size: 1.3rem !important;
+    margin-top: 25px !important;
+    color: #d32f2f !important;
+    font-weight: 500;
+}
+
+.confetti-container {
+    margin-top: 30px;
+}
+
+.confetti-btn {
+    background: linear-gradient(to right, #ff4081, #d32f2f);
+    color: white;
+    border: none;
+    padding: 18px 35px;
+    font-size: 1.3rem;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(211, 47, 47, 0.3);
+}
+
+.confetti-btn i {
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+.confetti-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(211, 47, 47, 0.4);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    color: #666;
+    border-top: 1px solid #ddd;
+    margin-top: 30px;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+.footer-note {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Confetti Canvas */
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-content {
+        width: calc(100% - 80px);
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        margin-left: 80px;
+        margin-right: 0;
+    }
+    
+    .timeline-icon {
+        left: 30px;
+    }
+    
+    .marvel-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .birthday-title {
+        font-size: 2.8rem;
+    }
+    
+    .section-title {
+        font-size: 2.3rem;
+    }
+    
     .vault-door {
         width: 250px;
         height: 350px;
@@ -458,6 +1010,34 @@
 }
 
 @media (max-width: 600px) {
+    .hero {
+        padding: 25px 20px;
+    }
+    
+    .birthday-title {
+        font-size: 2.2rem;
+    }
+    
+    .birthday-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .timeline-content {
+        padding: 20px;
+    }
+    
+    .gallery {
+        height: 300px;
+    }
+    
+    .wish-content h2 {
+        font-size: 2.5rem;
+    }
+    
     .vault-door {
         width: 200px;
         height: 300px;
