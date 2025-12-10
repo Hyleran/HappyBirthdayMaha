@@ -77,8 +77,8 @@ const galleryData = [
     { src: "images/maha10.jpg", caption: "The picture that sums up our entire friendship - perfectly imperfect" }
 ];
 
-// Vault functionality
-const VAULT_PASSWORD = "FRIENDSHIP"; // You can change this to whatever you want
+// Vault functionality - PASSWORD IS "calendar" (case-insensitive)
+const VAULT_PASSWORD = "CALENDAR"; // Changed to calendar
 let attempts = 0;
 const MAX_ATTEMPTS = 5;
 
@@ -228,8 +228,9 @@ function setupVault() {
     
     // Unlock vault button
     unlockVaultBtn.addEventListener('click', function() {
-        const password = vaultPasswordInput.value.trim().toUpperCase();
+        const password = vaultPasswordInput.value.trim().toUpperCase(); // Convert to uppercase for case-insensitive comparison
         
+        // Check if password is "CALENDAR" (case-insensitive)
         if (password === VAULT_PASSWORD) {
             // Correct password - open vault
             unlockVault();
