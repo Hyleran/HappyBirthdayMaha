@@ -66,20 +66,20 @@ const timelineData = [
 // In a real scenario, you would replace these with your actual image filenames
 // Gallery data - using YOUR actual image filenames
 const galleryData = [
-    { src: "images/HAAAAAAAAAHAHA.png", caption: "" },
-    { src: "images/I don't think Maha wants to watch the show with me.png", caption: "" },
-    { src: "images/MAHAGEISHA.png", caption: "" },
-    { src: "images/Screenshot 2024-02-15 201756.png", caption: "" },
-    { src: "images/Screenshot 2025-11-14 195602.png", caption: "" },
-    { src: "images/Screenshot 2025-11-14 195608.png", caption: "" },
-    { src: "images/Screenshot 2025-11-14 195612.png", caption: "" },
-    { src: "images/mahawatchingkorbakai5.png", caption: "" },
-    { src: "images/mahawatchingkorbakai8.png", caption: "" },
-    { src: "images/mahawatchingkorbakai9.png", caption: "" },
-    { src: "images/mahawithanantenna.png", caption: "" },
-    { src: "images/mahsgonnacrywhensheseesthis.png", caption: "" },
-    { src: "images/picklewater.png", caption: "" },
-    { src: "images/queenwhat.png", caption: "" }
+    { src: "images/HAAAAAAAAAHAHA.png", caption: "Dzang you look sad, why???" },
+    { src: "images/I don't think Maha wants to watch the show with me.png", caption: "Oh wow you must have been DISGUSTED here" },
+    { src: "images/MAHAGEISHA.png", caption: "MAHA GEISHA!!!" },
+    { src: "images/Screenshot 2024-02-15 201756.png", caption: "STRAIGHT AURA istg" },
+    { src: "images/Screenshot 2025-11-14 195602.png", caption: "ooo you mad" },
+    { src: "images/Screenshot 2025-11-14 195608.png", caption: "DANG YOU REAL MAD????" },
+    { src: "images/Screenshot 2025-11-14 195612.png", caption: "The Hulkess LMAO" },
+    { src: "images/mahawatchingkorbakai5.png", caption: "Batwoman with long nails" },
+    { src: "images/mahawatchingkorbakai8.png", caption: "my FAV pic ever" },
+    { src: "images/mahawatchingkorbakai9.png", caption: "Aftermath of mocks representation fr" },
+    { src: "images/mahawithanantenna.png", caption: "Communicating with the mothership" },
+    { src: "images/mahsgonnacrywhensheseesthis.png", caption: "I'm imagining the sound you're making in my head" },
+    { src: "images/picklewater.png", caption: "Eugh" },
+    { src: "images/queenwhat.png", caption: "HMM?" }
 ];
 
 // Vault functionality - PASSWORD IS "calendar" (case-insensitive)
