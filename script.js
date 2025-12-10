@@ -1,3 +1,8 @@
+// Countdown Timer Functionality
+const TARGET_DATE = new Date('December 11, 2025 19:00:00').getTime();
+let countdownInterval;
+let mathAttempts = 0;
+
 // Timeline Data
 const timelineData = [
     {
@@ -82,26 +87,220 @@ const galleryData = [
 
 // Vault functionality - PASSWORD IS "calendar" (case-insensitive)
 const VAULT_PASSWORD = "CALENDAR"; // Changed to calendar
-let attempts = 0;
+let vaultAttempts = 0;
 const MAX_ATTEMPTS = 5;
 
 // Initialize the website
 document.addEventListener('DOMContentLoaded', function() {
-    // Create timeline
-    createTimeline();
+    // Start the countdown timer
+    startCountdown();
     
-    // Create gallery
-    createGallery();
+    // Setup math problem troll
+    setupMathTroll();
     
-    // Setup confetti button
-    setupConfetti();
+    // Setup fun facts updater
+    updateFunFacts();
     
-    // Set total images count
-    document.getElementById('total-imgs').textContent = galleryData.length;
-    
-    // Setup vault functionality
-    setupVault();
+    // Check if we should show the main website (if it's past the target time)
+    checkTimeAndShowWebsite();
 });
+
+// Countdown Timer Function
+function startCountdown() {
+    countdownInterval = setInterval(updateCountdown, 1000);
+    updateCountdown(); // Run once immediately
+}
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const timeLeft = TARGET_DATE - now;
+    
+    // If countdown is over
+    if (timeLeft <= 0) {
+        clearInterval(countdownInterval);
+        showMainWebsite();
+        return;
+    }
+    
+    // Calculate days, hours, minutes, seconds
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+    
+    // Update countdown display
+    document.getElementById('days').textContent = days.toString().padStart(2, '0');
+    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    
+    // Update wait seconds
+    document.getElementById('wait-seconds').textContent = Math.floor(timeLeft / 1000);
+}
+
+// Math Problem Troll Functionality
+function setupMathTroll() {
+    const submitBtn = document.getElementById('submit-answer');
+    const hintBtn = document.getElementById('hint-btn-troll');
+    const closeHintBtn = document.getElementById('close-hint-troll');
+    const hintModal = document.getElementById('hint-modal-troll');
+    const mathAnswerInput = document.getElementById('math-answer');
+    const resultMessage = document.getElementById('result-message');
+    const attemptCount = document.getElementById('attempt-count');
+    const progressFill = document.getElementById('progress-fill');
+    
+    // Submit button functionality
+    submitBtn.addEventListener('click', function() {
+        const answer = mathAnswerInput.value.trim();
+        mathAttempts++;
+        attemptCount.textContent = mathAttempts;
+        
+        // Update progress bar (fills up but does nothing)
+        const progressPercentage = Math.min((mathAttempts / 10) * 100, 100);
+        progressFill.style.width = `${progressPercentage}%`;
+        
+        // Create funny responses based on attempts
+        let response = "";
+        let responseClass = "";
+        
+        if (mathAttempts === 1) {
+            response = "Hmm... interesting approach! But not quite right. Try again! 🤔";
+            responseClass = "info";
+        } else if (mathAttempts === 2) {
+            response = "Okay, that's a creative answer! But still incorrect. Maybe think outside the box? 🧠";
+            responseClass = "info";
+        } else if (mathAttempts === 3) {
+            response = "You're getting... nowhere! 😂 Just kidding, keep trying! Or don't...";
+            responseClass = "warning";
+        } else if (mathAttempts === 5) {
+            response = "5 attempts already? You're persistent! Too bad the problem is IMPOSSIBLE! 😈";
+            responseClass = "error";
+        } else if (mathAttempts === 7) {
+            response = "You know this is a troll, right? The website unlocks at 7PM no matter what you answer! 🤣";
+            responseClass = "error";
+        } else if (mathAttempts === 10) {
+            response = "10 ATTEMPTS! You deserve an award for perseverance! 🏆 Too bad it's STILL WRONG!";
+            responseClass = "error";
+        } else {
+            // Random funny responses
+            const responses = [
+                "Nope! Wrong again! 😏",
+                "Incorrect! But nice try! 👍",
+                "That's not it! The answer is... actually, I don't know either! 🤷‍♂️",
+                "Wrong! But don't worry, everyone gets this wrong!",
+                "Incorrect! Maybe try asking Siri? 🤖",
+                "Wrong answer! The correct answer is... wait, is there even one? 🤔",
+                "Nope! But hey, at least you're entertained! 😄",
+                "Incorrect! This is more fun than actually solving it, right?",
+                "Wrong! But I appreciate your determination! 💪",
+                "Not even close! But who's counting? (I am! It's " + mathAttempts + " attempts!)"
+            ];
+            response = responses[Math.floor(Math.random() * responses.length)];
+            responseClass = "random";
+        }
+        
+        // Update result message
+        resultMessage.innerHTML = `<p class="${responseClass}">${response}</p>`;
+        
+        // Clear input
+        mathAnswerInput.value = "";
+        
+        // Add shake animation to input
+        mathAnswerInput.classList.add('shake');
+        setTimeout(() => {
+            mathAnswerInput.classList.remove('shake');
+        }, 500);
+        
+        // Add some fun CSS animation
+        submitBtn.style.animation = "bounce 0.5s";
+        setTimeout(() => {
+            submitBtn.style.animation = "";
+        }, 500);
+    });
+    
+    // Allow pressing Enter to submit answer
+    mathAnswerInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            submitBtn.click();
+        }
+    });
+    
+    // Hint button
+    hintBtn.addEventListener('click', function() {
+        hintModal.classList.remove('hidden');
+    });
+    
+    // Close hint modal
+    closeHintBtn.addEventListener('click', function() {
+        hintModal.classList.add('hidden');
+    });
+    
+    // Add CSS for animations
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .info { color: #2196F3; }
+        .warning { color: #FF9800; font-weight: bold; }
+        .error { color: #F44336; font-weight: bold; }
+        .random { color: #9C27B0; }
+    `;
+    document.head.appendChild(style);
+}
+
+// Update fun facts
+function updateFunFacts() {
+    setInterval(function() {
+        // Generate random number of virtual hugs
+        const randomHugs = Math.floor(Math.random() * 1000) + 500;
+        document.getElementById('random-number').textContent = randomHugs.toLocaleString();
+    }, 3000); // Update every 3 seconds
+}
+
+// Check time and show website if it's time
+function checkTimeAndShowWebsite() {
+    const now = new Date().getTime();
+    if (now >= TARGET_DATE) {
+        showMainWebsite();
+    }
+}
+
+// Show main website function
+function showMainWebsite() {
+    const countdownOverlay = document.getElementById('countdown-overlay');
+    const mainWebsite = document.getElementById('main-website');
+    
+    // Hide countdown
+    countdownOverlay.classList.remove('active');
+    countdownOverlay.classList.add('hidden');
+    
+    // Show main website with animation
+    mainWebsite.classList.remove('hidden');
+    setTimeout(() => {
+        mainWebsite.classList.add('visible');
+        
+        // Initialize the main website components
+        createTimeline();
+        createGallery();
+        setupConfetti();
+        document.getElementById('total-imgs').textContent = galleryData.length;
+        setupVault();
+        
+        // Launch confetti to celebrate unlock
+        if (typeof startConfetti === 'function') {
+            startConfetti();
+        }
+    }, 100);
+}
 
 // Function to create timeline
 function createTimeline() {
@@ -173,7 +372,7 @@ function createGallery() {
     const images = document.querySelectorAll('.gallery-img');
     if (images.length > 0) {
         images[0].classList.add('active');
-        captionElement.textContent = galleryData[0].caption; // FIXED: now shows caption
+        captionElement.textContent = galleryData[0].caption;
         currentImgElement.textContent = 1;
     }
     
@@ -182,7 +381,7 @@ function createGallery() {
         images[currentIndex].classList.remove('active');
         currentIndex = (currentIndex + 1) % images.length;
         images[currentIndex].classList.add('active');
-        captionElement.textContent = galleryData[currentIndex].caption; // FIXED: now shows caption
+        captionElement.textContent = galleryData[currentIndex].caption;
         currentImgElement.textContent = currentIndex + 1;
     });
     
@@ -191,7 +390,7 @@ function createGallery() {
         images[currentIndex].classList.remove('active');
         currentIndex = (currentIndex - 1 + images.length) % images.length;
         images[currentIndex].classList.add('active');
-        captionElement.textContent = galleryData[currentIndex].caption; // FIXED: now shows caption
+        captionElement.textContent = galleryData[currentIndex].caption;
         currentImgElement.textContent = currentIndex + 1;
     });
     
@@ -239,7 +438,7 @@ function setupVault() {
             unlockVault();
         } else {
             // Wrong password
-            attempts++;
+            vaultAttempts++;
             updateAttemptsDisplay();
             
             // Shake animation for wrong password
@@ -252,12 +451,12 @@ function setupVault() {
             updateCodeDisplay(password);
             
             // Show error message
-            if (attempts < MAX_ATTEMPTS) {
-                alert(`Incorrect password. You have ${MAX_ATTEMPTS - attempts} attempt${MAX_ATTEMPTS - attempts === 1 ? '' : 's'} left.`);
+            if (vaultAttempts < MAX_ATTEMPTS) {
+                alert(`Incorrect password. You have ${MAX_ATTEMPTS - vaultAttempts} attempt${MAX_ATTEMPTS - vaultAttempts === 1 ? '' : 's'} left.`);
             } else {
                 alert("You've used all your attempts! The vault will reset in 10 seconds.");
                 setTimeout(() => {
-                    attempts = 0;
+                    vaultAttempts = 0;
                     updateAttemptsDisplay();
                     vaultPasswordInput.value = '';
                     updateCodeDisplay('----');
@@ -298,8 +497,8 @@ function setupVault() {
     
     // Update attempts display
     function updateAttemptsDisplay() {
-        attemptsCount.textContent = attempts;
-        const fillPercentage = (attempts / MAX_ATTEMPTS) * 100;
+        attemptsCount.textContent = vaultAttempts;
+        const fillPercentage = (vaultAttempts / MAX_ATTEMPTS) * 100;
         attemptsFill.style.width = `${fillPercentage}%`;
     }
     
@@ -342,7 +541,7 @@ function setupVault() {
         }, 1500);
         
         // Reset attempts
-        attempts = 0;
+        vaultAttempts = 0;
         updateAttemptsDisplay();
     }
     
@@ -497,7 +696,9 @@ function setupConfetti() {
     }
     
     // Button click event
-    confettiBtn.addEventListener('click', startConfetti);
+    if (confettiBtn) {
+        confettiBtn.addEventListener('click', startConfetti);
+    }
     
     // Also trigger confetti when page loads after a delay
     setTimeout(() => {
