@@ -1,1 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Maha! ✨</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-content">
+                <h1 class="birthday-title">Happy Birthday, Maha! 🎉</h1>
+                <p class="birthday-subtitle">A journey through our friendship ✨</p>
+                <div class="theme-icons">
+                    <i class="fas fa-guitar taylor-icon"></i>
+                    <i class="fas fa-coffee gilmore-icon"></i>
+                    <i class="fas fa-mask marvel-icon"></i>
+                </div>
+                <div class="birthday-message">
+                    <p>Maha, on your special day, I wanted to create something that shows just how much our friendship means to me. Every moment, from the silly to the significant, has built something beautiful. Here's to many more memories together! 🥂</p>
+                    <p class="signature">With love, from your friend ❤️</p>
+                </div>
+            </div>
+            <div class="hero-decoration">
+                <div class="decoration taylor-swift">"Long live all the magic we made"</div>
+                <div class="decoration gilmore-girls">"Oy with the poodles already!"</div>
+                <div class="decoration marvel">"I love you 3000"</div>
+            </div>
+        </header>
 
+        <!-- Timeline Section -->
+        <section class="timeline-section">
+            <h2 class="section-title">Our Friendship Timeline</h2>
+            <p class="section-subtitle">Every moment that brought us closer</p>
+            
+            <div class="timeline">
+                <!-- Timeline items will be dynamically added by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Photo Gallery -->
+        <section class="gallery-section">
+            <h2 class="section-title">Terribly Wonderful Memories 📸</h2>
+            <p class="section-subtitle">Proof that our friendship is built on laughs and awkward photos</p>
+            
+            <div class="gallery-container">
+                <div class="gallery-controls">
+                    <button id="prev-btn" class="gallery-btn"><i class="fas fa-chevron-left"></i></button>
+                    <div class="gallery-counter">
+                        <span id="current-img">1</span> / <span id="total-imgs">10</span>
+                    </div>
+                    <button id="next-btn" class="gallery-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="gallery">
+                    <!-- Gallery images will be dynamically added by JavaScript -->
+                </div>
+                <p class="gallery-caption">Caption: <span id="img-caption">Loading...</span></p>
+            </div>
+        </section>
+
+        <!-- Interactive Marvel Section -->
+        <section class="marvel-section">
+            <h2 class="section-title">Superhero Friendship</h2>
+            <p class="section-subtitle">Because our friendship has superpowers!</p>
+            
+            <div class="marvel-cards">
+                <div class="marvel-card iron-man">
+                    <div class="marvel-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Iron Man Friendship</h3>
+                    <p>Like Tony Stark, our friendship is built with intelligence, humor, and a bit of genius-level engineering!</p>
+                </div>
+                <div class="marvel-card spiderman">
+                    <div class="marvel-icon">
+                        <i class="fas fa-spider"></i>
+                    </div>
+                    <h3>Spiderman Friendship</h3>
+                    <p>Like Peter Parker, we stick together through thick and thin, with great responsibility and awesome memories!</p>
+                </div>
+                <div class="marvel-card friendship-gauntlet">
+                    <div class="marvel-icon">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <h3>Our Friendship Gauntlet</h3>
+                    <p>With all the stones of laughter, trust, adventures, late-night calls, and Mun sessions - our friendship is truly infinite!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Birthday Wish -->
+        <section class="birthday-wish">
+            <div class="wish-content">
+                <h2>My Birthday Wish for You</h2>
+                <div class="wish-text">
+                    <p>Maha, I wish you a year filled with:</p>
+                    <ul>
+                        <li>Taylor Swift songs that perfectly match your mood</li>
+                        <li>Gilmore Girls-level witty conversations</li>
+                        <li>Marvel-worthy adventures and triumphs</li>
+                        <li>Endless laughter and unforgettable moments</li>
+                        <li>All the success and happiness you deserve</li>
+                    </ul>
+                    <p class="final-message">Thank you for being such an incredible friend. Here's to celebrating many more birthdays together! 🥳🎂</p>
+                </div>
+                <div class="confetti-container">
+                    <button id="confetti-btn" class="confetti-btn">
+                        <i class="fas fa-birthday-cake"></i> Launch Birthday Confetti!
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Made with ❤️ for Maha's Birthday | 2025</p>
+            <p class="footer-note">This website is deployed on GitHub Pages for you to keep forever!</p>
+        </footer>
+    </div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
